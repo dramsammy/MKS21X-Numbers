@@ -13,7 +13,8 @@ public class RationalNumber extends RealNumber
   }
 
   public double getValue(){
-    RealNumber.getValue();
+    v = numerator * 1.0 / denominator * 1.0;
+    return v;
   }
 
   /**
@@ -49,6 +50,15 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
+    if (numerator == 0 || denominator == 0){
+      return "0";
+    }
+    if (denominator == 1){
+      return "" + numerator;
+    }
+    if ((numerator < 0 || denominator < 0) && !(numerator < 0 && denominator < 0)){
+      return "-" + numerator + "/" + denominator;
+    }
     return numerator + "/" + denominator;
   }
 
@@ -83,33 +93,33 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    return v * other.getValue;
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    return v / other.getValue;
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    return v + other.getValue;
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    return v - other.getValue;
   }
 }
